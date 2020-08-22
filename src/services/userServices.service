@@ -1,0 +1,19 @@
+import React from 'react';
+import axios from 'axios';
+ 
+export default class ListUsers extends React.Component {
+
+  state = {
+    users: []
+  }
+ 
+  componentDidMount() {
+    axios.get(`https://arsene.azurewebsites.net/User`)
+      .then(res => {
+        const users = res.data;
+        this.setState({ users });
+      })
+  }
+ 
+
+}
